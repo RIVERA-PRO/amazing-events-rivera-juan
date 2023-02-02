@@ -1,27 +1,22 @@
+const container = document.getElementById("container");
+const eventInfo = data.events;
 
 
-const cards = document.getElementById("container")
-let eventInfo = data.events
-let card = ""
-
-for (let recInfo of eventInfo){
-    
-    card+=` <div class="card m-2" style="width: 10rem;" id="1">
-    <img src="${recInfo.image}" class="card-img-top"
-        alt=" Festival of the collectivities">
-    <div class="card-body">
+const cards = eventInfo.map(recInfo => {
+  return `
+    <div class="card m-2" style="width: 10rem;">
+      <img src="${recInfo.image}" class="card-img-top" alt="Festival of the collectivities">
+      <div class="card-body">
         <h5 class="card-title">${recInfo.name}</h5>
-        <p class="card-text">${recInfo.date} </p>
-
-        <div class="d-flex justify-content-around ">
-            <p class="card-price">$${recInfo.price}</p>
-            <a href="./descripcion.html" class="btn text-light">More</a>
+        <p class="card-text">${recInfo.date}</p>
+        <div class="d-flex justify-content-around">
+          <p class="card-price">$${recInfo.price}</p>
+          <a href="./descripcion.html" class="btn text-light">More</a>
         </div>
-
+      </div>
     </div>
-</div>`
-}
+  `;
+}).join("");
 
-container.innerHTML += card
-
+container.innerHTML += cards;
 
