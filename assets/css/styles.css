@@ -98,22 +98,31 @@ h1{
     box-shadow: 0 2px 2px #1a1e25;
     border-radius: 8px;
     height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    gap: 1rem;
+}
+
+.categorys input{
+    width: 14px;
+    font-size: 10px;
 }
 
 label{
     color: #fff;
+    
 }
-
-
 /*CARD*/
+
 
 #container{
     
     width: 100%;
     display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(100px, auto));
-    gap: 4.9rem;
-    padding: 50px 11%;
+	grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+    gap: 6rem;
+    padding: 50px 10%;
     align-items: center;
     align-self: center;
     align-content: center;
@@ -183,7 +192,37 @@ label{
     padding: 10px;
 }
 
+#container .text-center{
+    color: #fff;
+    font-size: 20px;
+    height: 20vh;
+    align-items: center;
+    display: flex;
+}
+.error{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
+.error img{
+width: 80px;
+}
+
+.p-reset{
+    display: flex;
+    align-items: center;
+   gap: 1rem;
+    width: auto;
+    height: 100%;
+    padding: 0px 0%;
+}
+.p-reset img{
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+}
 
 /*contact*/
 
@@ -308,6 +347,13 @@ footer h5:hover{
 
 
 
+@media (max-width: 1260px){
+    
+    .categorys{
+        flex-wrap: wrap;
+    }
+}
+
 @media (max-width: 600px){
     .form-contact, input, textarea{
         width: 100%;
@@ -321,5 +367,9 @@ footer h5:hover{
     tbody{
         font-size: 10px;
         color: #fff;
+    }
+
+    .categorys{
+        flex-wrap: wrap;
     }
 }
