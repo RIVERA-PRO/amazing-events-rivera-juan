@@ -43,7 +43,7 @@ searchInput.addEventListener("input", e => {
   });
 
   if (!hay) {
-    container.innerHTML = `<div class="error"> <div class="p-reset"><p class="text-center">Sorry Man.!! No events found</p> <a href="./index.html"><img src="./assets/img/reset.png" alt="reset"> </a></div> 
+    container.innerHTML = `<div class="error"> <div class="p-reset"><p class="text-center">Sorry Man.!! No events found</p> <a href=".pastEvents.html"><img src="./assets/img/reset.png" alt="reset"> </a></div> 
     <img src="./assets/img/error.webp" alt="error"> </div>`;
   }
 });

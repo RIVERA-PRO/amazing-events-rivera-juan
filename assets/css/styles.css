@@ -121,7 +121,7 @@ label{
     width: 100%;
     display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(200px, auto));
-    gap: 6rem;
+    gap: 3em;
     padding: 50px 10%;
     align-items: center;
     align-self: center;
