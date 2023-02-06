@@ -19,7 +19,15 @@ body{
    background-color: #150b3cf7;
    padding: 1px 40px;
 }
-
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+main{
+    margin-top: 8vh;
+}
 span{
    color: #f82452;
 }
@@ -127,7 +135,9 @@ label{
     align-self: center;
     align-content: center;
     justify-content: center;
+    
 }
+
 .card{
     
     height: auto;
