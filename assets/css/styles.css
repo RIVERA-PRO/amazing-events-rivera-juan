@@ -309,10 +309,12 @@ tbody{
     background:linear-gradient(30deg,#ee1e4856, #b30cd861);
     color: #fff;
     text-align: center;
-    align-items: center;
 }
 
-
+.text-des span{
+    color: #000;
+    font-weight: 500;
+}
 .img-des{
     width: 100%;
     height: 100%;
@@ -329,18 +331,24 @@ tbody{
     width: 100%;
 }
 
-.description{
-    padding: 0px 13%;
-}
+
 
 .name{
     font-size: 30px;
     font-weight: 900;
+    text-align: center;
+}
+.date{
+    text-align: center;
 }
 .price{
     background-color: #150b3cf7;
     border-radius: 7px;
     width: 100px;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
  
 }
 
