@@ -13,7 +13,7 @@ const cards = filterEvents.map(recInfo => {
         <p class="card-text">${recInfo.date}</p>
         <div class="d-flex justify-content-around">
           <p class="card-price">$${recInfo.price}</p>
-          <a href="./descripcion.html" class="btn text-light">More</a>
+          <a  href="./descripcion.html?_id=${recInfo._id}" class="btn text-light">More</a>
         </div>
       </div>
     </div>
@@ -24,56 +24,63 @@ container.innerHTML += cards;
 
 //search
 const searchInput = document.querySelector(".form-control");
-searchInput.addEventListener("input", e => {
-  const search = e.target.value.toLowerCase();
-  const cards = document.querySelectorAll(".card");
 
-  let hay = false;
+function inputSearchUp() {
+  searchInput.addEventListener("input", e => {
+    const search = e.target.value.toLowerCase();
+    const cards = document.querySelectorAll(".card");
 
-  cards.forEach(card => {
-    const name = card.querySelector(".card-title").innerText.toLowerCase();
-    if (name.startsWith(search)) {
-      hay = true;
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
+    let hay = false;
+
+    cards.forEach(card => {
+      const name = card.querySelector(".card-title").innerText.toLowerCase();
+      if (name.startsWith(search)) {
+        hay = true;
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+
+    if (!hay) {
+      container.innerHTML = `<div class="error"> <div class="p-reset"><p class="text-center">Sorry Man.!! No events found</p> <a href="./upcoming.html"><img src="./assets/img/reset.png" alt="reset"> </a></div> 
+      <img src="./assets/img/error.webp" alt="error"> </div>`;
     }
   });
 
-  if (!hay) {
-    container.innerHTML = `<div class="error"> <div class="p-reset"><p class="text-center">Sorry Man.!! No events found</p> <a href="./upcoming.html"><img src="./assets/img/reset.png" alt="reset"> </a></div> 
-    <img src="./assets/img/error.webp" alt="error"> </div>`;
-  }
-});
+}
+inputSearchUp()
+
+
 
 
 
 
 //check
 const categories = [...new Set(eventInfo.map(event => event.category))];
-
 const filtersContainer = document.querySelector(".categorys");
 
-categories.forEach(category => {
-  const filter = document.createElement("input");
-  filter.setAttribute("type", "checkbox");
-  filter.setAttribute("id", category);
-  filter.setAttribute("value", category);
+function createCheckUp() {
+  categories.forEach(category => {
+    const filter = `
+      <input type="checkbox" id="${category}" value="${category}">
+      <label for="${category}">${category}</label>`;
 
-  const label = document.createElement("label");
-  label.setAttribute("for", category);
-  label.innerText = category;
+    filtersContainer.innerHTML += filter;
+  });
+}
+createCheckUp()
 
-  filtersContainer.appendChild(filter);
-  filtersContainer.appendChild(label);
 
-  filter.addEventListener("change", () => {
+
+function filterCheckUp() {
+  filtersContainer.addEventListener("change", e => {
     const selectedCategories = Array.from(filtersContainer.querySelectorAll("input:checked"))
       .map(checkbox => checkbox.value);
 
     let hay = false;
     const filterEvents = eventInfo.filter(event => {
-      if (selectedCategories.includes(event.category) && event.date < currentDate) {
+      if (selectedCategories.includes(event.category) && event.date > currentDate) {
         hay = true;
         return true;
       }
@@ -89,7 +96,7 @@ categories.forEach(category => {
             <p class="card-text">${recInfo.date}</p>
             <div class="d-flex justify-content-around">
               <p class="card-price">$${recInfo.price}</p>
-              <a href="./descripcion.html" class="btn text-light">More</a>
+              <a  href="./descripcion.html?_id=${recInfo._id}" class="btn text-light">More</a>
             </div>
           </div>
         </div>
@@ -99,8 +106,10 @@ categories.forEach(category => {
     container.innerHTML = cards;
 
     if (!hay) {
-      container.innerHTML = `<div class="error"> <div class="p-reset"><p class="text-center">Sorry Man.!! No events found</p> <a href="./upcoming.html"><img src="./assets/img/reset.png" alt="reset"> </a></div>
+      container.innerHTML = `<div class="error"> <div class="p-reset"><p class="text-center">Sorry Man.!! No events found</p> <a href="./pastEvents.html"><img src="./assets/img/reset.png" alt="reset"> </a></div>
       <img src="./assets/img/error.webp" alt="error"> </div>`;
     }
   });
-});
+
+}
+filterCheckUp()

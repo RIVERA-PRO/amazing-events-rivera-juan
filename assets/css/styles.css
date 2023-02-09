@@ -287,13 +287,13 @@ tbody{
 
 
 .descripciones{
-    margin-top: 10vh;
+    
     width: 100%;
     display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(200px, auto));
     padding: 100px 13%;
     gap: 3rem;
-    background:linear-gradient(30deg,#ee1e4856, #b30cd861);
+
 }
 
 .text-des{
@@ -308,7 +308,11 @@ tbody{
     flex-direction: column;
     background:linear-gradient(30deg,#ee1e4856, #b30cd861);
     color: #fff;
+    text-align: center;
+    align-items: center;
 }
+
+
 .img-des{
     width: 100%;
     height: 100%;
@@ -323,6 +327,21 @@ tbody{
 .img-des img{
     border-radius: 8px;
     width: 100%;
+}
+
+.description{
+    padding: 0px 13%;
+}
+
+.name{
+    font-size: 30px;
+    font-weight: 900;
+}
+.price{
+    background-color: #150b3cf7;
+    border-radius: 7px;
+    width: 100px;
+ 
 }
 
 /*FOOTER*/
