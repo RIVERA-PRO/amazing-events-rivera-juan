@@ -22,6 +22,8 @@ const cards = filterEvents.map(recInfo => {
 
 container.innerHTML += cards;
 
+
+
 //search
 const searchInput = document.querySelector(".form-control");
 
@@ -50,8 +52,6 @@ function inputSearchUp() {
 
 }
 inputSearchUp()
-
-
 
 
 

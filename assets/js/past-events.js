@@ -28,27 +28,45 @@ const searchInput = document.querySelector(".form-control");
 
 function inputSearchPast() {
 
-  searchInput.addEventListener("input", e => {
+  // Agrego el eventos "keyup" al elemento con clase "searchInput"
+  searchInput.addEventListener("keyup", e => {
+    // Obtengo el valor ingresado en el elemento "searchInput" y convertido a minúsculas
     const search = e.target.value.toLowerCase();
+    // Obtengo todos los elementos con clase "card"
     const cards = document.querySelectorAll(".card");
-
+    // Variable  para indicar si hay coincidencias
     let hay = false;
 
+    // Itero sobre cada uno de los elementos con clase "card"
     cards.forEach(card => {
+      // Obtengo el texto del elemento con clase "card-title" y convertido a minúsculas
       const name = card.querySelector(".card-title").innerText.toLowerCase();
+      // Verifica si el texto comienza con el valor en "search"
       if (name.startsWith(search)) {
+
         hay = true;
         card.style.display = "block";
       } else {
+
         card.style.display = "none";
       }
     });
 
+    // Verificar si no se encontraron coincidencias
     if (!hay) {
-      container.innerHTML = `<div class="error"> <div class="p-reset"><p class="text-center">Sorry Man.!! No events found</p> <a href="./pastEvents.html"><img src="./assets/img/reset.png" alt="reset"> </a></div> 
-        <img src="./assets/img/error.webp" alt="error"> </div>`;
+      // Reemplazar el contenido del contenedor con mensaje de error
+      container.innerHTML = `<div class="error"> 
+      <div class="p-reset">
+        <p class="text-center">Sorry Man.!! No events found</p> 
+        <a href="./pastEvents.html">
+          <img src="./assets/img/reset.png" alt="reset"> 
+        </a>
+      </div> 
+      <img src="./assets/img/error.webp" alt="error"> 
+    </div>`;
     }
   });
+
 
 }
 inputSearchPast()
@@ -59,6 +77,7 @@ inputSearchPast()
 
 // check----------------------------
 
+//Con .map() creo un nuevO ARRAY que contiene solo las propiedades category de cada objeto de evento en eventInfo.
 const categories = [...new Set(eventInfo.map(event => event.category))];
 const filtersContainer = document.querySelector(".categorys");
 
@@ -77,10 +96,13 @@ createChec()
 function filterCheck() {
 
   filtersContainer.addEventListener("change", e => {
+    // Obtiene un array de las categorías seleccionadas
     const selectedCategories = Array.from(filtersContainer.querySelectorAll("input:checked"))
       .map(checkbox => checkbox.value);
 
     let hay = false;
+
+    // se Filtra los eventos que coinciden con las categorías seleccionadas y  fechas son pasadas
     const filterEvents = eventInfo.filter(event => {
       if (selectedCategories.includes(event.category) && event.date < currentDate) {
         hay = true;
