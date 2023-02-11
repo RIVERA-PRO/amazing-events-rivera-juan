@@ -2,8 +2,8 @@
 const eventos = data.events
 const queryString = location.search
 const params = new URLSearchParams(queryString)
-const _id = params.get("_id")
-const descrip = eventos.find(recInfo => recInfo._id == _id)
+const id = params.get("_id")
+const descrip = eventos.find(recInfo => recInfo._id == id)
 const descripciones = document.querySelector(".descripciones")
 
 
