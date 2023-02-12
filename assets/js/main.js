@@ -2,7 +2,7 @@
 const container = document.getElementById("container");
 const eventInfo = data.events;
 
-function createCard(eventInfo, container) {
+function createCard(eventInfo) {
   const cards = eventInfo.map(recInfo => {
     return `
       <div class="card m-2" style="width: 13rem;"  data-type="${recInfo.category}">
@@ -20,8 +20,7 @@ function createCard(eventInfo, container) {
   }).join("");
   container.innerHTML += cards;
 }
-
-createCard(eventInfo, container)
+createCard(eventInfo)
 
 
 
@@ -42,63 +41,122 @@ function createChecks(categories, filtersContainer) {
 createChecks(categories, filtersContainer)
 
 
-function filterCheck(filtersContainer) {
-  filtersContainer.addEventListener("change", () => {
-    const selectedCategories = Array.from(filtersContainer.querySelectorAll("input:checked")).map(checkbox => checkbox.value)
+function filterCards(selectedCategories, cards) {
+  if (selectedCategories.length === 0) {
+    cards.
 
-    const cards = document.querySelectorAll(".card")
-
-    if (selectedCategories.length === 0) {
-      cards.forEach(card => {
+      forEach(card => {
         card.style.display = "block"
       })
-      return
+    return
+  }
+
+  cards.forEach(card => {
+    if (selectedCategories.includes(card.getAttribute("data-type"))) {
+      card.style.display = "block"
+    } else {
+      card.style.display = "none"
     }
-
-    cards.forEach(card => {
-      if (selectedCategories.includes(card.getAttribute("data-type"))) {
-        card.style.display = "block"
-      } else {
-        card.style.display = "none"
-      }
-    })
   })
-
 }
-filterCheck(filtersContainer)
+
+
+filtersContainer.addEventListener("change", () => {
+  const selectedCategories = Array.from(filtersContainer.querySelectorAll("input:checked")).map(checkbox => checkbox.value)
+
+  const cards = document.querySelectorAll(".card")
+
+  filterCards(selectedCategories, cards)
+})
 
 
 
 //search
 const searchInput = document.querySelector(".form-control");
 
-function inputSearch(searchInput) {
+function searchCards(search, selectedCategories, cards) {
+  let hay = false
 
-  searchInput.addEventListener("keyup", e => {
-    const search = e.target.value.toLowerCase()
-    const cards = document.querySelectorAll(".card")
-    const selectedCategories = Array.from(filtersContainer.querySelectorAll("input:checked")).map(checkbox => checkbox.value)
-
-    let hay = false
-
-    cards.forEach(card => {
-      const name = card.querySelector(".card-title").innerText.toLowerCase();
-      const category = card.getAttribute("data-type")
-
-      if ((name.startsWith(search)) && (selectedCategories.includes(category) || selectedCategories.length === 0)) {
-        hay = true
-        card.style.display = "block"
-      } else {
-        card.style.display = "none"
-      }
-    });
-
-    if (!hay) {
-      container.innerHTML = `<div class="error"> <div class="p-reset"><p class="text-center">Sorry Man.!! No events found</p> <a href="./index.html"><img src="./assets/img/reset.png" id="reset"> </a></div>
-        <img src="./assets/img/error.webp" alt="error"> </div>`
+  cards.forEach(card => {
+    const name = card.querySelector(".card-title").innerText.toLowerCase();
+    const category = card.getAttribute("data-type")
+    if ((name.startsWith(search)) && (selectedCategories.includes(category) || selectedCategories.length === 0)) {
+      hay = true
+      card.style.display = "block"
+    } else {
+      card.style.display = "none"
     }
-  })
+  });
+
+  if (!hay) {
+    container.innerHTML = `<div class="error"> <div class="p-reset"><p class="text-center">Sorry Man.!! No events found</p> <a href="./index.html"><img src="./assets/img/reset.png" id="reset"> </a></div> <img src="./assets/img/error.webp" alt="error"> </div>`
+  }
 }
-inputSearch(searchInput)
+
+searchInput.addEventListener("keyup", e => {
+  const search = e.target.value.toLowerCase()
+  const cards = document.querySelectorAll(".card")
+  const selectedCategories = Array.from(filtersContainer.querySelectorAll("input:checked")).map(checkbox => checkbox.value)
+
+  searchCards(search, selectedCategories, cards)
+})
 
 
+
+
+// function inputSearch(searchInput) {
+
+//   searchInput.addEventListener("keyup", e => {
+//     const search = e.target.value.toLowerCase()
+//     const cards = document.querySelectorAll(".card")
+//     const selectedCategories = Array.from(filtersContainer.querySelectorAll("input:checked")).map(checkbox => checkbox.value)
+
+//     let hay = false
+
+//     cards.forEach(card => {
+//       const name = card.querySelector(".card-title").innerText.toLowerCase();
+//       const category = card.getAttribute("data-type")
+
+//       if ((name.startsWith(search)) && (selectedCategories.includes(category) || selectedCategories.length === 0)) {
+//         hay = true
+//         card.style.display = "block"
+//       } else {
+//         card.style.display = "none"
+//       }
+//     });
+
+//     if (!hay) {
+//       container.innerHTML = `<div class="error"> <div class="p-reset"><p class="text-center">Sorry Man.!! No events found</p> <a href="./index.html"><img src="./assets/img/reset.png" id="reset"> </a></div>
+//         <img src="./assets/img/error.webp" alt="error"> </div>`
+//     }
+//   })
+// }
+// inputSearch(searchInput)
+
+
+
+// function filterCheck(filtersContainer) {
+//   filtersContainer.addEventListener("change", () => {
+//     const selectedCategories = Array.from(filtersContainer.querySelectorAll("input:checked")).map(checkbox => checkbox.value)
+
+//     const cards = document.querySelectorAll(".card")
+
+//     if (selectedCategories.length === 0) {
+//       cards.forEach(card => {
+//         card.style.display = "block"
+//       })
+//       return
+//     }
+
+//     cards.forEach(card => {
+//       if (selectedCategories.includes(card.getAttribute("data-type"))) {
+//         card.style.display = "block"
+//       } else {
+//         card.style.display = "none"
+//       }
+//     })
+//   })
+
+// }
+
+// filterCheck(filtersContainer)

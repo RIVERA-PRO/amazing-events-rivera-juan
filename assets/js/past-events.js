@@ -50,35 +50,39 @@ function createChecksPast(categories, filtersContainer) {
 createChecksPast(categories, filtersContainer)
 
 
-function filterCheckPast() {
 
-  filtersContainer.addEventListener("change", () => {
-    const selectedCategories = Array.from(filtersContainer.querySelectorAll("input:checked")).map(checkbox => checkbox.value);
-    const cards = container.querySelectorAll(".card");
 
-    if (selectedCategories.length === 0) {
-      cards.forEach(card => {
-        card.style.display = "block";
-      });
-      return;
-    }
-
+function filterCards(selectedCategories, cards) {
+  if (selectedCategories.length === 0) {
     cards.forEach(card => {
-      if (selectedCategories.includes(card.getAttribute("data-type"))) {
-        card.style.display = "block";
-      } else {
-        card.style.display = "none";
-      }
+      card.style.display = "block";
     });
+    return;
+  }
+
+  cards.forEach(card => {
+    if (selectedCategories.includes(card.getAttribute("data-type"))) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
   });
 }
-filterCheckPast()
+
+
+filtersContainer.addEventListener("change", () => {
+  const selectedCategories = Array.from(filtersContainer.querySelectorAll("input:checked")).map(checkbox => checkbox.value);
+  const cards = container.querySelectorAll(".card");
+
+  filterCards(selectedCategories, cards);
+});
 
 
 
 
 
-//search------------------------------
+
+
 const searchInput = document.querySelector(".form-control");
 
 function inputSearchPast() {
@@ -107,3 +111,6 @@ function inputSearchPast() {
 
 }
 inputSearchPast()
+
+
+
