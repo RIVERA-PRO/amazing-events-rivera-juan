@@ -97,3 +97,79 @@ function inputSearchUp() {
 
 }
 inputSearchUp()
+
+
+
+
+
+
+// const container = document.getElementById("container");
+// let eventInfo;
+// let currentDate;
+
+// fetch('https://mindhub-xj03.onrender.com/api/amazing')
+//   .then(response => response.json())
+//   .then(data => {
+//     eventInfo = data.events;
+//     currentDate = data.currentDate;
+//     const filterEvents = eventInfo.filter(event => event.date > currentDate);
+//     createCardUp(filterEvents, container);
+//   });
+
+// function createCardUp(filterEvents, container) {
+//   const cards = filterEvents.map(recInfo => {
+//     return `
+//       <div class="card m-2" style="width: 13rem;" data-type="${recInfo.category}">
+//         <img src="${recInfo.image}" class="card-img-top" alt="Festival of the collectivities" style="height: 7rem;">
+//         <div class="card-body">
+//           <h5 class="card-title">${recInfo.name}</h5>
+//           <p class="card-text">${recInfo.date}</p>
+//           <div class="d-flex justify-content-around">
+//             <p class="card-price">$${recInfo.price}</p>
+//             <a href="./descripcion.html?_id=${recInfo._id}" class="btn text-light">More</a>
+//           </div>
+//         </div>
+//       </div>
+//     `;
+//   }).join("");
+
+//   container.innerHTML = cards;
+// }
+
+// //check
+// const filtersContainer = document.querySelector(".categorys");
+
+// function createChecksUp(categories, filtersContainer) {
+//   categories.forEach(category => {
+//     const filter = `
+//         <input type="checkbox" id="${category}" value="${category}" />
+//         <label for="${category}">${category}</label>`
+
+//     filtersContainer.innerHTML += filter
+//   });
+// }
+
+// fetch('https://mindhub-xj03.onrender.com/api/amazing')
+//   .then(response => response.json())
+//   .then(data => {
+//     const categories = [...new Set(data.events.map(event => event.category))];
+//     createChecksUp(categories, filtersContainer);
+//   });
+
+// function filterCards(selectedCategories, cards) {
+//   if (selectedCategories.length === 0) {
+//     cards.forEach(card => {
+//       card.style.display = "block";
+//     });
+//     return;
+//   }
+
+//   cards.forEach(card => {
+//     if (selectedCategories.includes(card.getAttribute("data-type"))) {
+//       card.style.display = "block";
+//     } else {
+//       card.style.display = "none";
+//     }
+//   });
+// }
+
