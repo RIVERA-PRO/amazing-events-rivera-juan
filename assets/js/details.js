@@ -41,9 +41,9 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
         const eventos = data.events;
         const queryString = location.search;
         const params = new URLSearchParams(queryString);
-        const id = params.get("_id");
-        console.log(id)
-        const descrip = eventos.find(event => event._id === id);
+        const _id = params.get("_id");
+        console.log(_id)
+        const descrip = eventos.find(event => event._id === _id);
         if (descrip) {
             renderDescripcion(descrip);
         } else {

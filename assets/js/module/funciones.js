@@ -91,19 +91,7 @@ export function searchCards(search, selectedCategories, cards) {
     // }
 }
 
-function error() {
-    container.innerHTML = `
-    <div class="error">
-       <div class="p-reset">
-        <p class="text-center">Sorry Man.!! No events found</p>
-         <a href="./index.html">
-              <img src="./assets/img/reset.png" id="reset">
-         </a>
-       </div>
-       <img src="./assets/img/error.webp" alt="error">
-    </div>
-   `;
-}
+
 
 
 
@@ -172,7 +160,7 @@ export function filterCardsUp(selectedCategories, cards) {
 }
 
 export function searchCardsUp(search, selectedCategories, cards) {
-    let hay = false;
+
 
     cards.forEach(card => {
         const name = card.querySelector(".card-title").innerText.toLowerCase();
@@ -181,26 +169,14 @@ export function searchCardsUp(search, selectedCategories, cards) {
             (name.startsWith(search)) &&
             (selectedCategories.includes(category) || selectedCategories.length === 0)
         ) {
-            hay = true;
+
             card.style.display = "block";
         } else {
             card.style.display = "none";
         }
     });
 
-    if (!hay) {
-        container.innerHTML = `
-        <div class="error">
-          <div class="p-reset">
-            <p class="text-center">Sorry Man.!! No events found</p>
-            <a href="./index.html">
-              <img src="./assets/img/reset.png" id="reset">
-            </a>
-          </div>
-          <img src="./assets/img/error.webp" alt="error">
-        </div>
-      `;
-    }
+
 }
 
 
@@ -267,7 +243,7 @@ export function filterCardsPast(selectedCategories, cards) {
 }
 
 export function searchCardsPast(search, selectedCategories, cards) {
-    let hay = false;
+
 
     cards.forEach(card => {
         const name = card.querySelector(".card-title").innerText.toLowerCase();
@@ -276,26 +252,14 @@ export function searchCardsPast(search, selectedCategories, cards) {
             (name.startsWith(search)) &&
             (selectedCategories.includes(category) || selectedCategories.length === 0)
         ) {
-            hay = true;
+
             card.style.display = "block";
         } else {
             card.style.display = "none";
         }
     });
 
-    if (!hay) {
-        container.innerHTML = `
-        <div class="error">
-          <div class="p-reset">
-            <p class="text-center">Sorry Man.!! No events found</p>
-            <a href="./index.html">
-              <img src="./assets/img/reset.png" id="reset">
-            </a>
-          </div>
-          <img src="./assets/img/error.webp" alt="error">
-        </div>
-      `;
-    }
+
 }
 
 

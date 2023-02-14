@@ -9,7 +9,8 @@ filtersContainer.addEventListener("change", () => {
 
   const cards = document.querySelectorAll(".card")
 
-  filterCardsUp(selectedCategories, cards)
+  const search = searchInput.value.toLowerCase()
+  searchCardsUp(search, selectedCategories, cards)
 })
 
 //search
