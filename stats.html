@@ -62,111 +62,57 @@
 
         <section class="table d-flex justify-content-center ">
             <div class="tabla m-4">
-                <table class="table">
 
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr class="title">
+                                <th colspan="3">Event statistics</th>
+                            </tr>
+                            <tr>
+                                <th>Events with the highest percentage of attendance</th>
+                                <th>Events with the lowest percentage of attendance</th>
+                                <th>Event with larger capacity</th>
+                            </tr>
+                        </thead>
+                        <tbody id="statistics-event">
 
-                    <colgroup>
-                        <col span="1" class="Events">
-                        <col span="1" class="Upcoming">
-                        <col span="1" class="Past">
-                    </colgroup>
+                        </tbody>
+                    </table>
+                    <table>
+                        <thead>
+                            <tr class="title">
+                                <th colspan="3">Upcoming events statistics by category</th>
+                            </tr>
+                            <tr>
+                                <th>Category</th>
+                                <th>Revenues</th>
+                                <th>Percentage of attendance</th>
+                            </tr>
+                        </thead>
+                        <tbody id="up-statistics">
 
-                    <thead class="">
+                        </tbody>
+                    </table>
+                    <table>
+                        <thead>
+                            <tr class="title">
+                                <th colspan="3">Past events statistic by category</th>
+                            </tr>
+                            <tr>
+                                <th>Category</th>
+                                <th>Revenues</th>
+                                <th>Percentage of attendance</th>
+                            </tr>
+                        </thead>
+                        <tbody id="past-statistics">
 
-                        <tr>
-                            <th colspan="3">Events statistcs</th>
-                        </tr>
-
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <th>Events with the highest percentage of attendance</th>
-                            <th>Events with the lowest percentage of attendance</th>
-                            <th>Events with larger capacity</th>
-                        </tr>
-                        <tr>
-                            <th> </th>
-                            <th> </th>
-                            <th> </th>
-                        </tr>
-
-
-                    </tbody>
-
-
-
-                    <thead class="">
-
-                        <tr>
-                            <th colspan="3">Upcoming events statics by category</th>
-                        </tr>
-
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>Categories</th>
-                            <th>Revenues</th>
-                            <th>Percentage of attendance</th>
-                        </tr>
-                        <tr>
-                            <th> </th>
-                            <th> </th>
-                            <th> </th>
-                        </tr>
-                        <tr>
-                            <th> </th>
-                            <th> </th>
-                            <th> </th>
-                        </tr>
-
-                    </tbody>
-
-
-
-                    <thead class="">
-
-                        <tr>
-                            <th colspan="3">Past events statics by category</th>
-                        </tr>
-
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>Categories</th>
-                            <th>Revenues</th>
-                            <th>Percentage of attendance</th>
-                        </tr>
-                        <tr>
-                            <th> </th>
-                            <th> </th>
-                            <th> </th>
-                        </tr>
-                        <tr>
-                            <th> </th>
-                            <th> </th>
-                            <th> </th>
-                        </tr>
-
-                    </tbody>
-
-
-
-
-                </table>
-
+                        </tbody>
+                    </table>
+                </div>
 
             </div>
         </section>
-
-
-
-
-
-
-
-
-
     </main>
 
 
@@ -187,7 +133,7 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
 
-    <script src="./assets/js/stats.js"> </script>
+    <script type="module" src="./assets/js/stats.js"> </script>
 </body>
 
 </html>

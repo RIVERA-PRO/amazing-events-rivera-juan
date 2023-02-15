@@ -381,7 +381,64 @@ footer h5:hover{
     color: #f82452;
 }
 
+table {
+    margin-top: 50px;
+}
 
+table {
+    box-shadow: -1px 1px 5px black;
+    text-align: center;
+    width: 100%;
+}
+
+table,
+th,
+td,
+tr {
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-collapse: collapse;
+    padding: 2px;
+    
+}
+table th{
+    font-size: 13px;
+}
+
+table tr{
+    font-size: 14px;
+}
+#past-statistics{
+  border-bottom: 2px solid black;  
+}
+
+.stats-main .table {
+    width: 100%;
+    margin: 5% 0;
+}
+
+.stats-main .table table{
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+
+.stats-main table tr td,
+.stats-main table tr th{
+    height: 1.7rem;
+    width: 33.3%;
+}
+
+.stats-main table .title {
+    background-color: #8c686b;
+}
+
+.stats-main table .title th {
+    padding: .7rem;
+    color: #efefef;
+}
 
 
 @media (max-width: 1260px){
@@ -405,8 +462,13 @@ footer h5:hover{
         font-size: 10px;
         color: #fff;
     }
+    table{
+        font-size: 1px;
+    }
 
     .categorys{
         flex-wrap: wrap;
     }
 }
+
+
